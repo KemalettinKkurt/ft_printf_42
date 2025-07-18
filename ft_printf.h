@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkocakur <kkocakur@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 04:05:44 by kkocakur          #+#    #+#             */
-/*   Updated: 2025/07/17 16:46:10 by kkocakur         ###   ########.fr       */
+/*   Created: 2025/07/15 04:06:52 by kkocakur          #+#    #+#             */
+/*   Updated: 2025/07/18 15:23:13 by kkocakur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
 #include <stdio.h>
 
-int	ft_strlen(int a)
-{
-	int	i;
-	i = 0;
-	if (a < 0)
-	{
-		a = -a;
-		i = 1;
-	}
-	
-	if(a == 0)
-		return 1;
+int		ft_printf(const char *format, ...);
+int	ft_putchar(char c, int *len);
+int		ft_putstr(char *s, int *len);
+int		ft_putnbr(int n, int *len);
+int		ft_putunbr(unsigned int n, int *len);
+int		ft_puthex(unsigned int n, const char format, int *len);
+int		ft_putptr(unsigned long long ptr, int *len);
 
-	
-	while (a > 0)
-	{
-		a = a / 10;
-		i++;
-	}
-		
-	return (i);
-}
+#endif
